@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.gridbox{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    grid-template-rows: repeat(2, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.box{
+    background: url(./python.jpg) no-repeat;
+    background-position: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.box:hover p:where(.left, .right){
+    transform: translateX(0);
+}
+
+.box:hover p:where(.top, .bottom){
+    transform: translateY(0);
+}
+
+.box:hover p:where(.middle){
+    transform: scale(1);
+}
+
+.box:hover p:where(.rotate-left){
+    transform: scale(1) rotateY(360deg);
+}
+
+.box:hover p:where(.rotate-right){
+    transform: scale(1) rotateY(0);
+}
+
+.box:hover p:where(.rotate-kebab){
+    transform: scale(1) rotateX(360deg);
+}
+
+.overlay{
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 300px;
+    text-align: center;
+    background-color: cadetblue;
+    opacity: .6;
+    transition: linear .3s;
+}
+
+.left{
+    transform: translateX(-500px);
+}
+
+.right{
+    transform: translateX(500px);
+}
+
+.top{
+    transform: translateY(-500px);
+}
+
+.bottom{
+    transform: translateY(500px);
+}
+
+.middle{
+    transform: scale(0);
+}
+
+p.rotate-left, p.rotate-right, p.rotate-kebab{
+    transition: linear .6s;
+}
+
+.rotate-left{
+    transform: scale(0);
+}
+
+.rotate-right{
+    transform: scale(0) rotate(-360deg);
+}
+
+.rotate-kebab{
+    transform: scale(0);
+}
